@@ -6,12 +6,6 @@ export default Component.extend({
     disableCreate: or('api_token.isSaving', 'emptyName'),
     serverError: null,
 
-    didInsertElement() {
-        if (this.get('api_token.isNew')) {
-            this.$('input').focus();
-        }
-    },
-
     actions: {
         async saveToken() {
             try {
