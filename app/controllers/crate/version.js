@@ -33,7 +33,7 @@ export default Controller.extend({
     return this.get('crate.owner_user').findBy('id', this.get('session.currentUser.id'));
   }),
   notYankedOrIsOwner: computed('model', 'crate.owner_user', 'session.currentUser.id', function() {
-    return !this.get('model').yanked || this.get('crate.owner_user').findBy('id', this.get('session.currentUser.id'));
+    return !this.model.yanked || this.get('crate.owner_user').findBy('id', this.get('session.currentUser.id'));
   }),
 
   sortedVersions: readOnly('crate.versions'),

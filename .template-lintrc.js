@@ -7,7 +7,7 @@ module.exports = {
 
   rules: {
     'img-alt-attributes': false,
-    'triple-curlies': false,
-    'html-comments': false,
+    'no-triple-curlies': true,
+    'no-html-comments': true,
   },
 };

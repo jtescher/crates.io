@@ -1,6 +1,6 @@
-{{ title 'Manage Crate Owners' }}
+{{ title "Manage Crate Owners" }}
 
-<div id='crates-heading'>
+<div id="crates-heading">
   {{svg-jar "gear"}}
   <h1>Manage Crate Owners</h1>
   <h2>{{ crate.name }}</h2>
@@ -10,20 +10,20 @@
   <h2>Add Owner</h2>
 
   <div class="row">
-    <form class="email-form" {{action 'addOwner' on='submit'}}>
-      <label class="label" for='new-owner-username'>
+    <form class="email-form" {{action "addOwner" on="submit"}}>
+      <label class="label" for="new-owner-username">
         Username
       </label>
-      {{input type='text' id='new-owner-username' value=username placeholder='Username' class='form-control space-right' name='username'}}
+      {{input type="text" id="new-owner-username" value=username placeholder="Username" class="form-control space-right" name="username"}}
 
       {{#if error}}
-        <div class='error'>
-          <p class='small-text error'>{{error}}</p>
+        <div class="error">
+          <p class="small-text error">{{error}}</p>
         </div>
       {{/if}}
 
       {{#if invited}}
-        <div class='invited'>
+        <div class="invited">
           <p>{{invited}}</p>
         </div>
       {{/if}}
@@ -38,17 +38,17 @@
 <h2>Owners</h2>
 
 {{#if removed}}
-  <div class='removed'>
+  <div class="removed">
     <p>{{removed}}</p>
   </div>
 {{/if}}
 
-<div class='owners white-rows'>
+<div class="owners white-rows">
   {{#each crate.owner_user as |user|}}
-    <div class='crate row'>
+    <div class="crate row">
       <div>
         {{#link-to user.kind user.login}}
-          {{user-avatar user=user size='medium-small'}}
+          {{user-avatar user=user size="medium-small"}}
         {{/link-to}}
       </div>
       <div>
@@ -56,11 +56,15 @@
           {{ user.name }}
         {{/link-to}}
       </div>
-      <div class='stats'>
-        {{{ if user.email user.email "&nbsp;" }}}
+      <div class="stats">
+        {{#if user.email }}
+          {{ user.email }}
+        {{else}}
+          &nbsp;
+        {{/if}}
       </div>
-      <div class='stats downloads'>
-        <button class='remove-owner small yellow-button' {{action 'removeOwner' user}}>Remove</button>
+      <div class="stats downloads">
+        <button class="remove-owner small yellow-button" {{action "removeOwner" user}}>Remove</button>
       </div>
     </div>
   {{/each}}

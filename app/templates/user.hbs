@@ -1,5 +1,5 @@
-<div id='crates-heading' data-test-heading>
-  {{user-avatar user=model.user size='medium' data-test-avatar=true}}
+<div id="crates-heading" data-test-heading>
+  {{user-avatar user=model.user size="medium" data-test-avatar=true}}
   <h1 data-test-username>
     {{ model.user.login }}
   </h1>
@@ -8,26 +8,26 @@
   {{/user-link}}
 </div>
 
-<div id='user-profile'>
-  <div class='info'>
+<div id="user-profile">
+  <div class="info">
     {{! TODO: reduce duplication with templates/crates.hbs }}
 
-    <div id='results'>
-      <div class='nav'>
-        <span class='amt small'>
+    <div id="results">
+      <div class="nav">
+        <span class="amt small">
           Displaying
-          <span class='cur'>{{ currentPageStart }}-{{ currentPageEnd }}</span>
-          of <span class='total'>{{ totalItems }}</span> total results
+          <span class="cur">{{ currentPageStart }}-{{ currentPageEnd }}</span>
+          of <span class="total">{{ totalItems }}</span> total results
         </span>
       </div>
 
-      <div class='sort'>
-        <span class='small'>Sort by</span>
+      <div class="sort">
+        <span class="small">Sort by</span>
         {{#rl-dropdown-container class="dropdown-container"}}
           {{#rl-dropdown-toggle tagName="a" class="dropdown"}}
             {{svg-jar "sort"}}
             {{ currentSortBy }}
-            <span class='arrow'></span>
+            <span class="arrow"></span>
           {{/rl-dropdown-toggle}}
 
           {{#rl-dropdown tagName="ul" class="dropdown" closeOnChildClick="a:link"}}
@@ -56,13 +56,13 @@
       </div>
     </div>
 
-    <div id='crates' class='white-rows'>
+    <div id="crates" class="white-rows">
       {{#each model.crates as |crate|}}
         {{crate-row crate=crate}}
       {{/each}}
     </div>
 
-    <div class='pagination'>
+    <div class="pagination">
       {{#link-to (query-params page=prevPage) class="prev" rel="prev" title="previous page"}}
         {{svg-jar "left-pag"}}
       {{/link-to}}
